@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -6,6 +7,7 @@ public class Sorting {
 
     public static void main(String[] args) throws InterruptedException {
         // int[] arr = { 5, 7, 3, 10, 2, 1, 5 };
+        int[] arr = { 10, 20, 30, 40, 50, 100, 200, 300, 4 };
         Map<Character, String> map = new HashMap<>();
         map.put('2', "abc");
         map.put('3', "def");
@@ -21,12 +23,12 @@ public class Sorting {
         // System.out.println(new Main().maximum(arr, arr.length));
         // new Main().selectionSort(arr, 0, 0);
         // arr = new Main().mergeSort(arr, 0, arr.length - 1);
-        // new Main().quickSort(arr, 0, arr.length - 1);
-        // System.out.println(Arrays.toString(arr));
+        new Main().quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
         // Main m = new Main();
         // m.phoneCombination("23", map, 0, "");
         // System.out.println(m.result);
-        System.out.println(new Main().numRollsToTarget(30, 30, 500));
+        // System.out.println(new Main().numRollsToTarget(30, 30, 500));
     }
 }
 
@@ -163,11 +165,13 @@ class Main {
                 e--;
             }
         }
+        System.out.println(Arrays.toString(arr));
         quickSort(arr, low, e);
         quickSort(arr, s, high);
     }
 
-    ArrayList<String> result= new ArrayList<String>();
+    ArrayList<String> result = new ArrayList<String>();
+
     void phoneCombination(String dial, Map<Character, String> map, int i, String combination) {
         if (i > dial.length() - 1) {
             result.add(combination);
@@ -182,11 +186,12 @@ class Main {
     }
 
     int count = 0;
+
     void diceRoll(int total_rounds, int target, int dice_cap, int round, int sum) {
         // System.out.println(round);
         // Thread.sleep(1000);
         if (round > total_rounds) {
-            if(sum == target){
+            if (sum == target) {
                 count++;
             }
             return;
@@ -195,8 +200,9 @@ class Main {
             diceRoll(total_rounds, target, dice_cap, round + 1, sum + num);
         }
     }
+
     public int numRollsToTarget(int n, int k, int target) {
-        diceRoll(n, target, k, 1, 0);    
+        diceRoll(n, target, k, 1, 0);
         return count;
     }
 }

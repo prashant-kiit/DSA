@@ -8,7 +8,6 @@ int m = n;
 
 void maxHeapify(int root)
 {
-
     int parent = root, leftChild = 2 * parent + 1, rightChild = 2 * parent + 2;
     while (parent <= (n - 2) / 2 && (a[parent] < a[leftChild] && (rightChild > n - 1 || a[parent] < a[rightChild])))
     {
@@ -51,7 +50,6 @@ void buildMaxHeapify()
 
 void maxExtract()
 {
-
     // swap
     int temp = a[0];
     a[0] = a[n - 1];
@@ -66,7 +64,6 @@ void maxExtract()
 
 void heapSort()
 {
-
     // build max heap
     buildMaxHeapify();
 

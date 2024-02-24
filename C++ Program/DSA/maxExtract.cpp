@@ -4,7 +4,6 @@ using namespace std;
 
 void maxHeapify(int a[], int n)
 {
-
     int parent = 0, leftChild = 2 * parent + 1, rightChild = 2 * parent + 2;
     while (parent <= (n - 2) / 2 && (a[parent] < a[leftChild] && (rightChild > n - 1 || a[parent] < a[rightChild])))
     {
@@ -37,7 +36,6 @@ void maxHeapify(int a[], int n)
 
 void maxExtract(int a[], int n)
 {
-
     // get max element
     cout << "max element=" << a[0] << endl;
 
