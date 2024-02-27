@@ -1,3 +1,5 @@
+package Recursion;
+
 public class Oracle {
     public static int count = 0;
     public static void findways(int n, int k, int sum, int total, String s) {
