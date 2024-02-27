@@ -1,7 +1,9 @@
+package Graph;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Main {
+public class DFSGraph {
     public static void main(String[] args) {
         ArrayList<Vertex> vertices = new ArrayList<>();
         vertices.add(new Vertex(0));
