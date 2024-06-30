@@ -1,8 +1,8 @@
 package Design_Pattern;
 
-public class Facade {
+public class Decorator {
     public static void main(String[] args) {
-        Interface Interface = new Decorator();
+        Interface Interface = new DecoratorI();
         Interface.doSomething();
     }
 }
@@ -17,7 +17,7 @@ class Main implements Interface {
     }
 }
 
-class Decorator implements Interface {
+class DecoratorI implements Interface {
     public void doSomething() {
         Main main = new Main();
         main.doSomething();
