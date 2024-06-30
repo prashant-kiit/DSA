@@ -9,7 +9,14 @@ public class Builder {
         .setSize("Hatchback")
         .build();
 
+        Car car1 = new CarBuilder()
+        .setName("Maruti")
+        .setEngine("100CC")
+        .setSize("Hatchback")
+        .build();
+
         System.out.println(car);
+        System.out.println(car1);
     }
 }
 
