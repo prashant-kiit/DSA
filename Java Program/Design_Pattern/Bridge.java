@@ -2,7 +2,7 @@ package Design_Pattern;
 
 public class Bridge {
     public static void main(String[] args) {
-        Player player = new Hotstar("Star Wars", new _4K());
+        Player player = new Netflix("Dhoom", new HD());
         player.play();
     }
 }
@@ -57,7 +57,7 @@ abstract class Processor {
 class HD extends Processor {
     @Override
     public void process(String platform, String movie) {
-        System.out.println("Movie processed into HD movie");
+        System.out.println("Movie " + movie + " processed into HD movie");
         System.out.println(platform + " is playing movie " + movie);
     }
 }
@@ -65,7 +65,7 @@ class HD extends Processor {
 class _4K extends Processor {
     @Override
     public void process(String platform, String movie) {
-        System.out.println("Movie processed into 4K movie");
+        System.out.println("Movie " + movie + " processed into 4K movie");
         System.out.println(platform + " is playing movie " + movie);
     }
 }

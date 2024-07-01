@@ -30,15 +30,14 @@ public class Factory {
     }
 }
 
-// Configuration
 // Component
-class OSFactory {
+class OSFactory { // (Factory Pattern)
     // Containers
     private static OSFactory osFactory = null;
-    private static HashMap<String, OS> beanContainer = null;
+    private static HashMap<String, OS> beanContainer = null;  // (Cache of Flyweight Pattern)
 
     // Qualifier
-    public static OSFactory getOSFactorySingletonObject() {
+    public static OSFactory getOSFactorySingletonObject() { // (Singleton Pattern)
         // bean
         if (osFactory == null) {
             osFactory = new OSFactory();
@@ -50,7 +49,7 @@ class OSFactory {
 
     // Qualifier
     public OS getOS(String OSName) throws Exception {
-        if (!beanContainer.containsKey(OSName) == true) {
+        if (!beanContainer.containsKey(OSName) == true) { // (Flyweight Pattern)
             // Configuration
             if (OSName.equals("windows"))
                 beanContainer.put(OSName, new Windows()); // Bean
