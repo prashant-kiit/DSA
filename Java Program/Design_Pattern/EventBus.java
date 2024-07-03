@@ -55,7 +55,7 @@ class Producer {
     public synchronized String getFirstMessageByName(String name) {
         String currentMessage = this.queue.peek(); // atomic operation
         if (name.equals(currentMessage)) {
-            return this.queue.poll(); // atomic operation
+            return this.queue.poll(); // atomic operation // read and acknowledge requests
         }
         return null;
     }

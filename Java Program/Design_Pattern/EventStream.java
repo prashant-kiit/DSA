@@ -58,7 +58,7 @@ class Producer {
     private String name = null;
     @SuppressWarnings("unused")
     private String[][] messages = null;
-    private Map<String, Consumer> registry = new HashMap<>(); // service registry
+    private Map<String, Consumer> registry = new HashMap<>(); // service registry with route key and bind key
 
     public Producer(String name) {
         this.name = name;
@@ -81,6 +81,7 @@ class Producer {
                         .getQueue().add(message[1])); // atomic operation //
                                                       // brokering based on topic
                                                       // [message[0]]
+                                                      // exchange
 
     }
 }
