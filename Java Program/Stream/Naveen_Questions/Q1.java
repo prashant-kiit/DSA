@@ -4,13 +4,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Q1 {
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(1, 2, 22, 3, 4, 5, 1, 2, 3, 4, 5);
+        // flat map
+        List<int[]> listOfIntArrays = Arrays.asList(
+                new int[] { 1, 2, 3 },
+                new int[] { 4, 5 },
+                new int[] { 6, 7, 8, 9 });
+
+        listOfIntArrays.stream().flatMapToInt(Arrays::stream).forEach(System.out::println);
 
         // sum
+        List<Integer> list = Arrays.asList(1, 2, 22, 3, 4, 5, 1, 2, 3, 4, 5);
         list.stream().reduce((a, b) -> a + b).ifPresentOrElse(System.out::println, new Runnable() {
             @Override
             public void run() {
@@ -61,6 +67,10 @@ public class Q1 {
                         })
                         .map(a -> a.name)
                         .collect(Collectors.toList()));
+
+        // count occurences a char in string
+        String str = "Prashant";
+        System.out.println(str.chars().filter(c -> (char) c == 'a').count());
     }
 }
 
