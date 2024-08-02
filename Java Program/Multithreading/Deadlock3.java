@@ -1,6 +1,4 @@
-// Problem : Circular Invocation in Nested Locks causes Deadlock
-// Solution : Linear invocation, Non nested Lock
-public class Deadlock1 {
+public class Deadlock3 {
     public static void main(String[] args) {
         Resourse resourse1 = new Resourse("House");
         Resourse resourse2 = new Resourse("Car");
@@ -11,7 +9,9 @@ public class Deadlock1 {
                 // reqiured Lock and Semaphore
                 // entry point
                 // critical section
-                resourse1.modify(resourse2);
+                synchronized (resourse1) {
+                    resourse1.modify(resourse2);
+                }
                 // exit point
             }
         }).start();
@@ -22,11 +22,15 @@ public class Deadlock1 {
                 // reqiured Lock and Semaphore
                 // entry point
                 // critical section
-                resourse2.modify(resourse1);
+                synchronized (resourse2) {
+                    resourse2.modify(resourse1);
+                }
                 // exit point
             }
         }).start();
     }
+
+    // Remove anyone synchronized keyword to resolve
 }
 
 class Resourse {
@@ -36,19 +40,19 @@ class Resourse {
         this.name = name;
     }
 
-    // synchronized by storing in Disk
-    synchronized public void modify(Resourse otherResourse) {
+    public void modify(Resourse otherResourse) {
         System.out.println("Enters resourse " + name);
         Util.sleep(1000);
         // reqiured Lock and Semaphore
         // entry point
         // critical section
-        otherResourse.print();
+        synchronized (otherResourse) {
+            otherResourse.print();
+        }
         // exit section
     }
 
-    // synchronized by storing in Disk
-    synchronized private void print() {
+    private void print() {
         Util.sleep(1000);
         System.out.println("Exits resourse " + name);
     }
