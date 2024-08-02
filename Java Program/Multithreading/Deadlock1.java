@@ -1,5 +1,6 @@
 // Problem : Circular Invocation in Nested Locks causes Deadlock
 // Solution : Linear invocation, Non nested Lock
+// Explaation : https://www.youtube.com/watch?v=NUazC4EUG50
 public class Deadlock1 {
     public static void main(String[] args) {
         Resourse resourse1 = new Resourse("House");
