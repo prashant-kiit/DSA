@@ -13,14 +13,26 @@ interface Interface {
 
 class Main implements Interface {
     public void doSomething() {
-        System.out.println("Main");
+        System.out.println("Main Function");
     }
 }
 
 class DecoratorI implements Interface {
+    private Main main = new Main();
+
     public void doSomething() {
-        Main main = new Main();
+        System.out.println("Decoration Part 1");
         main.doSomething();
-        System.out.println("Decorator");
+        System.out.println("Decoration Part 2");
+    }
+}
+
+class Decorator2 implements Interface {
+    private Main main = new Main();
+
+    public void doSomething() {
+        System.out.println("More Decoration Part 1");
+        main.doSomething();
+        System.out.println("More Decoration Part 2");
     }
 }
