@@ -2,8 +2,10 @@ package Design_Pattern;
 
 public class Decorator {
     public static void main(String[] args) {
+        Main main = new Main();
+        main.doSomething(); // original function
         Interface Interface = new DecoratorI();
-        Interface.doSomething();
+        Interface.doSomething(); // decorated function
     }
 }
 
