@@ -1,10 +1,11 @@
 public class Closure1 {
-    static int n = 4; // stored in closure
+    // static int n = 4; // stored in closure
 
     private static Square getSquareFunctionObject() {
         // lambda function
         // Square foo = x -> x * n;
         // anonymous class
+        int n = 4; // stored in closure
         Square foo = new Square() {
             @Override
             public int square(int x) {
